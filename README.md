@@ -11,6 +11,10 @@ All code contained in this repo is offered as sample code without warranty.
 
 This function takes source data from a CSV file and tokenizes it by inserting sensitive values into a Skyflow Privacy Vault and getting non-sensitive tokens back.
 
+See the [detokenize README](/deidentify_string/README.md) for more information and examples.
+
 ### Deidentify String(s)
 
 This function takes any string, detects sensitive enitities in the string, and replaces sensitive data with non-sensitive tokens.
+
+See the [deidentify_string README](/deidentify_string/README.md) for more information and examples.
