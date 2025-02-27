@@ -6,6 +6,9 @@ This function takes any string, detects sensitive enitities in the string, and r
 results = deidentify_string(string, access_token)
 ```
 
+> [!NOTE]
+> This function is in active development and is meant to serve as an example. Test and validate before deploying.
+
 ## Installation
 
 To install this function in your Databricks account, copy the contents of [deidentify_string.sql](/deidentify_string/deidentify_string.sql) into a Query in Databricks, replace the `vault_id` and `vault_url` variables, and run it by passing in a `string` and a `sky_api_key`.
