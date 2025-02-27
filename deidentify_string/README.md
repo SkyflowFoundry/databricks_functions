@@ -7,7 +7,7 @@ results = deidentify_string(string, access_token)
 ```
 
 > [!NOTE]
-> This function is in active development and is meant to serve as an example. Test and validate before deploying.
+> This function is in active development and is meant to serve as an example. Test and validate code before deploying.
 
 ## Installation
 
@@ -172,20 +172,35 @@ $$
 
 ## Usage
 
-From a Query (SQL):
+Congratulations, you've installed the function in Databricks Unity Catalog.
+
+Now, you can try it out in a notebook:
 
 ```py
-results = deidentify_string(string, access_token)
+# Retrieve an access token from Databricks Secrets.
+sky_api_key = dbutils.secrets.get(scope="sky-agentic-demo", key="sky_api_key")
+# Alternately, you can hardcode the API key here.
+# sky_api_key = "yourkey"
+
+# Provide some sample text. In practice you'll read this from a file or table.
+input_text = "Hi my name is Joseph McCarron and I live in Austin TX"
+
+# Create the input dataframe
+df = spark.createDataFrame([(input_text,)], ["input_text"])
+df.createOrReplaceTempView("input_table")
+
+# Create the result dataframe and pass the API key and the input dataframe
+result_df = spark.sql(f"""
+SELECT agentic.default.deidentify_string(input_text, '{sky_api_key}') AS deidentified_text
+FROM input_table
+""")
+
+# Display the result
+display(result_df)
 ```
 
-From a Notebook (Python + Spark):
+For a full example of installation and usage in a Databricks Notebook, import [this Notebook](/deidentify_string/deidentify_string.ipynb) into Databricks.
 
-```py
-example
-```
+## Questions & Feedback
 
-As an Agent tool:
-
-```py
-
-```
+Please submit issues on this repo with any questions or requests, or contact support@skyflow.com.
