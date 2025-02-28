@@ -42,7 +42,7 @@ You should be prompted for `Databricks Host` and a `Personal Access Token`.
 
 To get a Personal Access Token (PAT) for development login to the Databricks UI, open Settings, click Developer, then Access Tokens.
 
-![create an access token in Databricks](/assets/access_tokens_ui.png)
+![create an access token in Databricks](/deidentify_string/assets/access_tokens_ui.png)
 
 For more information on authenticating the Databricks CLI see the official documentation: [Databricks | Authentication for the Databricks CLI](https://docs.databricks.com/aws/en/dev-tools/cli/authentication)
 
